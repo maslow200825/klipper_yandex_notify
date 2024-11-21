@@ -8,7 +8,7 @@ BASE_URL = 'https://api.iot.yandex.net/v1.0/scenarios'
 # туда вписать билиберду чтобы он не запускался случайно, а команда прочитать текст на нужной колонке
 SCENARIOS = {
     'finish_print': '',
-    'pause_print': ''  # id сценария можно узнать по ссылке https://iot.quasar.yandex.ru/m/user/scenarios
+    'pause_print': ''  # id сценария можно узнать по ссылке https://iot.quasar.yandex.ru/m/user/scenarios, предварительно авторизовавшись под той же учетной записью под которой подключена яндекс станция.
 }
 
 def execute_command(command):
