@@ -21,7 +21,8 @@
 3. После входа вас перенаправит на несуществующий сайт `https://oauth.localhost.local/auth`.
 4. В адресной строке найдите фрагмент: https://oauth.localhost.local/auth#access_token=ВАШ_ACCESS_TOKEN
 5. Скопируйте значение `ВАШ_ACCESS_TOKEN` — это и есть ваш **AUTH_ID**. его необходимо прописать в yandex_notify.py
-6. ```markdown
+```markdown
+```ini
 AUTH_ID =
 ```
 ---
@@ -40,6 +41,7 @@ AUTH_ID =
 3. Слева вверху включите опцию **"Автоформатирование"**.
 4. Найдите ваш сценарий по имени и скопируйте его ID. его необходимо прописать в yandex_notify.py
 ```markdown
+```ini
 SCENARIOS = {
     'finish_print': '',
     'pause_print': ''
@@ -76,6 +78,6 @@ gcode:
 [gcode_macro CHANGE_FILAMENT_YA]
 gcode:
     RUN_SHELL_COMMAND CMD=ya_print_command PARAMS="pause_print"
-
+```
 ### Ну и собственно эти макросы прописать в макрос завершения печати и смены филамента
 
