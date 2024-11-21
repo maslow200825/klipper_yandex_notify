@@ -53,6 +53,9 @@
 ### 4.3 Настройка команды в `shell_command.cfg`
 1. Откройте файл `shell_command.cfg` для редактирования.
 2. Добавьте следующий код:
+
+```markdown
+```ini
 [gcode_shell_command ya_print_command]
 command: python3 /home/linaro/yandex_notify.py
 timeout: 2.
