@@ -1,7 +1,5 @@
 # Инструкция: Получение AUTH_ID для управления Яндекс Станцией
-
 ## 1. Получение AUTH_ID
-
 ### 1.1 Создание нового приложения
 1. Перейдите по ссылке: [https://oauth.yandex.ru/client/new](https://oauth.yandex.ru/client/new).
 2. Авторизуйтесь под аккаунтом, к которому привязана ваша Яндекс Станция.
@@ -25,7 +23,6 @@
 5. Скопируйте значение `ВАШ_ACCESS_TOKEN` — это и есть ваш **AUTH_ID**.
 ---
 ## 2. Получение ID сценария
-
 ### 2.1 Создание сценариев в Яндекс Умном доме
 1. Создайте сценарий в приложении "Яндекс".
 - Например:
@@ -40,7 +37,34 @@
 3. Слева вверху включите опцию **"Автоформатирование"**.
 4. Найдите ваш сценарий по имени и скопируйте его ID.
 ---
-## 3. Использование ID сценария в Klipper
-1. Укажите ID сценария в скрипте Klipper.
-2. Названия, такие как `finish_print` или `pause_print`, могут быть любыми. Главное, чтобы они были понятны и передавались корректно в сценарии.
+## 3. Использование ID сценария в yandex_notify.py
+1. Укажите ID сценария в скрипте yandex_notify.py.
+
+## 4. Установка и настройка скрипта на машине с Klipper
+### 4.1 Размещение скрипта
+1. Скопируйте скрипт `yandex_notify.py` на машину с установленным Klipper.
+2. Поместите файл в папку, к которой есть доступ у пользователя, под которым работает Klipper. Например: /home/username/yandex_notify.py
+
+### 4.2 Установка поддержки G-Code Shell Command
+1. В интерфейсе **KIAUH** перейдите в раздел **[Advanced]**.
+2. Установите модуль **[G-Code Shell Command]**.
+3. После установки в конфигурации **fluidd** появится файл `shell_command.cfg`.
+
+### 4.3 Настройка команды в `shell_command.cfg`
+1. Откройте файл `shell_command.cfg` для редактирования.
+2. Добавьте следующий код:
+[gcode_shell_command ya_print_command]
+command: python3 /home/linaro/yandex_notify.py
+timeout: 2.
+verbose: True
+
+[gcode_macro FINISH_PRINT_YA]
+gcode:
+    RUN_SHELL_COMMAND CMD=ya_print_command PARAMS="finish_print"
+
+[gcode_macro CHANGE_FILAMENT_YA]
+gcode:
+    RUN_SHELL_COMMAND CMD=ya_print_command PARAMS="pause_print"
+
+### Ну и собственно эти макросы прописать в макрос завершения печати и смены филамента
 
