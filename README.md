@@ -55,10 +55,10 @@ SCENARIOS = {
 1. Скопируйте скрипт `yandex_notify.py` на машину с установленным Klipper.
 2. Поместите файл в папку, к которой есть доступ у пользователя, под которым работает Klipper. Например: /home/username/yandex_notify.py
 
-### 4.2 Установка поддержки G-Code Shell Command
+### 4.2 Установка поддержки G-Code Shell Command в klipper
 1. В интерфейсе **KIAUH** перейдите в раздел **[Advanced]**.
 2. Установите модуль **[G-Code Shell Command]**.
-3. После установки в конфигурации **fluidd** появится файл `shell_command.cfg`.
+3. После установки в конфигурации **fluidd либо mainsail** появится файл `shell_command.cfg`.
 
 ### 4.3 Настройка команды в `shell_command.cfg`
 1. Откройте файл `shell_command.cfg` для редактирования.
