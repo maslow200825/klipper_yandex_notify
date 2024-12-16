@@ -59,6 +59,8 @@ SCENARIOS = {
 1. В интерфейсе **KIAUH** перейдите в раздел **[Advanced]**.
 2. Установите модуль **[G-Code Shell Command]**.
 3. После установки в конфигурации **fluidd либо mainsail** появится файл `shell_command.cfg`.
+4. необходимо проверить в printer.cfg в конце include shell_command.cfg и перенести его в начало файла printer.cfg
+5. так же необходимо установить модуль request для python (pip install requets)
 
 ### 4.3 Настройка команды в `shell_command.cfg`
 1. Откройте файл `shell_command.cfg` для редактирования.
